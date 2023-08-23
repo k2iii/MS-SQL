@@ -148,3 +148,16 @@ GO
  RECONFIGURE
  GO
 
+ -- 서버이름 변경, 서버명 변경
+ -- 1.서버명을 확인 하는 방법
+ SELECT @@SERVERNAME
+
+ -- 2.현재 서버명 삭제
+ EXEC SP_DROPSERVER '현재의 MSSQL서버명'
+
+ -- 3.새로운 서버명 추가
+ EXEC SP_ADDSERVER '바꿀서버명', 'local'
+
+ -- 4.서비스 재시작
+ -- 5. 변경된 서버명 확인
+  SELECT @@SERVERNAME
