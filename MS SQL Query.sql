@@ -161,3 +161,13 @@ GO
  -- 4.서비스 재시작
  -- 5. 변경된 서버명 확인
   SELECT @@SERVERNAME
+
+-- csv 파일 Insert 하는 방법
+BULK INSERT Setting.Localization  -- 대상 테이블
+FROM 'D:\local.csv'               -- 파일 경로
+WITH (
+	FIELDTERMINATOR = ',',        -- 열 구분자
+	ROWTERMINATOR = '\n',         -- 행 구분자
+	KEEPNULLS,                    -- NULL 값 삽입
+	TABLOCK                       -- 테이블 수준 잠금
+)
